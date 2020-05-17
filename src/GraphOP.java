@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class GraphOP {
     Graph graph = new Graph();
-
-    public void CreatGraph(int vertexNum, int arcs) {
+    public void InitGraph(int vertexNum){
         graph.vertexNum = vertexNum;
         graph.head = new VertxNode[vertexNum];
         for (int i = 0; i < vertexNum; i++) {
@@ -13,17 +12,17 @@ public class GraphOP {
             graph.head[i].data = i;
             graph.head[i].firstArc = null;
         }
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < arcs; i++) {
-            int v1 = scanner.nextInt() - 1;
-            int v2 = scanner.nextInt() - 1;
-            Creat(v1, v2);
-            Creat(v2, v1);
-        }
+    }
+
+    public void CreatGraph(int v1, int v2) {
+            Creat(v1-1, v2-1);
+            Creat(v2-1, v1-1);
+    }
+
+    public void Rsort() {
         for (int i = 0; i < graph.vertexNum; i++) {
             graph.head[i].firstArc = sort(graph.head[i].firstArc);
         }
-
     }
 
     private void Creat(int v1, int v2) {
@@ -127,6 +126,7 @@ public class GraphOP {
             visited[i] = 0;
         }
         System.out.print((v + 1) + " ");
+        visited[v]=1;
         Queue<Integer> queue = new LinkedList<Integer>();
         queue.add(v);
         while (!queue.isEmpty()) {
