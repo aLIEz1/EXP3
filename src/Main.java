@@ -7,14 +7,18 @@ public class Main {
         op.InitGraph(in.nextInt());
         int row = in.nextInt();
         for (int i = 0; i < row; i++) {
-            op.CreatGraph(in.nextInt(), in.nextInt());
+//            op.CreatGraph(in.nextInt(), in.nextInt());
+            op.CreatGraph(in.nextInt(), in.nextInt(), in.nextInt());
         }
 
-        op.Rsort();
-        op.DFSGraph();
-        System.out.println();
-        op.BFSGraph(0);
+//        op.Rsort();
+//        op.DFSGraph();
+//        System.out.println();
+//        op.BFSGraph(0);
 //        op.Display();
+//        op.TopOrder();
+//        op.Display();
+        op.Dijkstra(0);
     }
 
 }
