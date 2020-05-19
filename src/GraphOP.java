@@ -22,12 +22,12 @@ public class GraphOP {
 
     public void CreatGraph(int v1, int v2, int weight) {
         ArcNode arcNode1 = new ArcNode();
-        arcNode1.adjVertx = v2-1;
+        arcNode1.adjVertx = v2 - 1;
         arcNode1.weight = weight;
         arcNode1.nextArc = null;
-        ArcNode arcNode2 = graph.head[v1-1].firstArc;
+        ArcNode arcNode2 = graph.head[v1 - 1].firstArc;
         if (arcNode2 == null) {
-            graph.head[v1-1].firstArc = arcNode1;
+            graph.head[v1 - 1].firstArc = arcNode1;
         } else {
             while (arcNode2.nextArc != null) {
                 arcNode2 = arcNode2.nextArc;
@@ -258,9 +258,15 @@ public class GraphOP {
             arcNode = graph.head[u].firstArc;
 
         }
-        for (int i = 1; i < graph.vertexNum; i++) {
-            System.out.print(dist[i] + " ");
-        }
+//        int min = 10000;
+//        for (int i = 1; i < graph.vertexNum; i++) {
+//            System.out.print(dist[i] + " ");
+////            if (dist[i] < min) {
+////                min = dist[i];
+////            }
+//        }
+//        System.out.print(min);
+        System.out.print(dist[graph.vertexNum - 1]);
     }
 
 
